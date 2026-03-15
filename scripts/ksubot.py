@@ -65,12 +65,15 @@ Branch: {branch}
 <a href="{run_url}">Workflow run</a>
 """.strip()
 
+def escape_telegram_html(text: str) -> str:
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;").replace("'", "&#39;")
+
 def get_caption():
     msg = MSG_TEMPLATE.format(
         title=TITLE,
         branch=BRANCH,
         version=VERSION,
-        commit_message=commit_message,
+        commit_message=escape_telegram_html(commit_message),
         commit_line=commit_line,
         run_url=RUN_URL,
     )
@@ -81,7 +84,7 @@ def get_caption_for_debug():
         title=f"{TITLE}-Debug",
         branch=BRANCH,
         version=VERSION,
-        commit_message=commit_message,
+        commit_message=escape_telegram_html(commit_message),
         commit_line=commit_line,
         run_url=RUN_URL,
     )
