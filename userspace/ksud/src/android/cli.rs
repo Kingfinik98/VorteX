@@ -49,6 +49,10 @@ enum Commands {
         #[arg(long, default_missing_value = "5555", num_args = 0..=1)]
         magica: Option<u16>,
 
+        /// Specify kernel KMI version instead of auto-detection
+        #[arg(long)]
+        kmi: Option<String>,
+
         /// Restore adb properties after magica late-load
         #[arg(long)]
         post_magica: bool,
@@ -688,6 +692,7 @@ pub fn run() -> Result<()> {
         Commands::LateLoad {
             magica,
             post_magica,
+            kmi,
         } => {
             if let Some(port) = magica {
                 return crate::android::magica::run(port).map_err(|e| {
@@ -695,7 +700,8 @@ pub fn run() -> Result<()> {
                     e
                 });
             }
-            let result = crate::android::late_load::run();
+
+            let result = crate::android::late_load::run(kmi);
             if post_magica {
                 info!("Restoring adb properties (post-magica cleanup)...");
                 if let Err(e) = crate::android::magica::disable_adb_root() {
