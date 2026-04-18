@@ -663,7 +663,7 @@ static void vol_detector_exit()
 }
 #endif
 
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 3, 0) || defined(KSU_HAS_MODERN_STATIC_KEY_INTERFACE)
+#ifdef KSU_COMPAT_USE_STATIC_KEY
 DEFINE_STATIC_KEY_TRUE(ksud_execve_key);
 
 void ksu_stop_ksud_execve_hook(void)

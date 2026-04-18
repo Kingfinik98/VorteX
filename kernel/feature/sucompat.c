@@ -221,7 +221,7 @@ out:
     return 0;
 }
 
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 3, 0) || defined(KSU_HAS_MODERN_STATIC_KEY_INTERFACE)
+#ifdef KSU_COMPAT_USE_STATIC_KEY
 extern struct static_key_true ksud_execve_key;
 #else
 extern bool ksud_execve_key;
@@ -254,7 +254,7 @@ int ksu_handle_execve(int *fd, const char *filename, void *argv, void *envp, int
 
     ksu_handle_execveat_init(filename, envp);
 
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 3, 0) || defined(KSU_HAS_MODERN_STATIC_KEY_INTERFACE)
+#ifdef KSU_COMPAT_USE_STATIC_KEY
     if (static_branch_unlikely(&ksud_execve_key)) {
         ksu_handle_execveat_ksud(filename, argv, envp, flags);
     }
