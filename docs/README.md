@@ -1,99 +1,95 @@
-# VorteX
-<img align='right' src='VorteX_blue.svg' width='220px' alt="VorteX Icon">
+# VorteX (Unofficial) Manager
+Do not remove credit under GPLv2 compliance.
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Kingfinik98/VortexSU/main/docs/VorteXSU.jpg"
+       width="100%"
+       alt="VorteX Banner" />
+</div>
 
-**English** | [简体中文](./zh/README.md)
+<h3 align="center">
+Kernel-based Android Root Solution from VorteXSU
+</h3>
 
-A based-on [`SukiSU-Ultra/SukiSU-Ultra`](https://github.com/SukiSU-Ultra/SukiSU-Ultra) fork, added some interesting changes, also make it more stable and build easily.
+<p align="center">
+  <a href="https://t.me/vortex_SU">
+    <img src="https://img.shields.io/badge/Telegram-VortexSU-blue?style=for-the-badge&logo=telegram" />
+  </a>
+</p>
 
-[![Latest release](https://img.shields.io/github/v/release/VorteX/VorteX?label=Release&logo=github)](https://github.com/VorteX/VorteX/releases/latest)
-[![Channel](https://img.shields.io/badge/Follow-Telegram-blue.svg?logo=telegram)](https://t.me/ReSukisu)
-[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-orange.svg?logo=gnu)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
-[![GitHub License](https://img.shields.io/github/license/tiann/KernelSU?logo=gnu)](/LICENSE)
+---
 
-## Features
+## Overview
 
-1. Kernel-based `su` and root access management
-2. Module system based on [Magic Mount](https://github.com/5ec1cff/KernelSU)
-   > **Note:** VorteX now delegates all module mounting to the installed *metamodule*; the core no longer handles mount operations.
-3. [App Profile](https://kernelsu.org/guide/app-profile.html): Lock up the root power in a cage
-4. Support non-GKI and GKI 1.0
-5. KPM Support
-6. Tweaks to the manager theme and the built-in susfs management tool.
+VorteXSU is a kernel-based root solution designed for clean integration, stability, and multi-manager compatibility.
 
-## Compatibility Status
+The root implementation and patch system are fully functional and tested.
 
-- VorteX officially supports Android GKI 2.0 devices (kernel 5.10+).
+- **Status:** Stable  
+- **Type:** Kernel Root Implementation  
+- **Distribution:** Unofficial Open Source  
 
-- Older kernels (3.4+) are also compatible, but the kernel will have to be built manually.
-
-- Currently, only `arm64-v8a`, `armeabi-v7a` and `X86_64`(some) are supported.
+---
 
 ## Integration
 
-See the [documentation](https://VorteX.github.io).
+Use the following command to integrate VorteXSU into your kernel source:
 
-## Translation
+```sh
+https://raw.githubusercontent.com/Kingfinik98/VorteX/refs/heads/main/kernel/setup.sh" | bash -s main
+```
 
-If you need to submit a translation for the manager, please go to [Crowdin](https://crowdin.com/project/VorteX).
+---
 
-## KPM Support
+## intergration kpm patch
 
-- Based on KernelPatch, we removed features redundant with KSU and retained only KPM support.
-- Work in Progress: Expanding APatch compatibility by integrating additional functions to ensure compatibility across different implementations.
+```sh
+curl -LSs "https://github.com/Kingfinik98/SukiSU_patch/raw/refs/heads/main/kpm/patch_linux" -o patch
+```
 
-**Open-source repository**: [https://github.com/ShirkNeko/SukiSU_KernelPatch_patch](https://github.com/ShirkNeko/SukiSU_KernelPatch_patch)
+---
 
-**KPM template**: [https://github.com/udochina/KPM-Build-Anywhere](https://github.com/udochina/KPM-Build-Anywhere)
+## Manager Support
 
-> [!Note]
->
-> 1. Requires `CONFIG_KPM=y`
-> 2. Non-GKI devices requires `CONFIG_KALLSYMS=y` and `CONFIG_KALLSYMS_ALL=y`
-> 3. For kernels below `4.19`, backporting from `set_memory.h` from `4.19` is required.
+Supported managers:
 
-## Sponsor
+- VortexSU  
+- KowSU  
+- RKSU  
+- SukiSU Ultra  
+- KernelSU-Next  
+- WildKSU  
+- no longer  
 
-- [ShirkNeko](https://afdian.com/a/shirkneko) (maintainer of SukiSU)
-- [weishu](https://github.com/sponsors/tiann) (author of KernelSU)
+---
 
-<details>
-<summary>ShirkNeko's sponsorship list</summary>
+## Features
 
-- [Ktouls](https://github.com/Ktouls) Thanks so much for bringing me support.
-- [zaoqi123](https://github.com/zaoqi123) Thanks for the milk tea.
-- [wswzgdg](https://github.com/wswzgdg) Many thanks for supporting this project.
-- [yspbwx2010](https://github.com/yspbwx2010) Many thanks.
-- [DARKWWEE](https://github.com/DARKWWEE) 100 USDT
-- [Saksham Singla](https://github.com/TypeFlu) Provide and maintain the website
-- [OukaroMF](https://github.com/OukaroMF) Donation of website domain name
-</details>
+- Kernel-based root implementation  
+- Fully working patch system  
+- Clean and modular integration  
+- Lightweight and optimized  
+- Multi-manager compatibility  
+- Suitable for OSS kernel builds  
 
-## License
+---
 
-- The file in the “kernel” directory is under [GPL-2.0-only](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html) license.
-- The images of the files `ic_launcher(?!.*alt.*).*` with anime character sticker are copyrighted by [怡子曰曰](https://space.bilibili.com/10545509), the Brand Intellectual Property in the images is owned by [明风 OuO](https://space.bilibili.com/274939213), and the vectorization is done by @MiRinChan. Before using these files, in addition to complying with [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt), you also need to comply with the authorization of the two authors to use these artistic contents.
-- Except for the files or directories mentioned above, all other parts are under [GPL-3.0 or later](https://www.gnu.org/licenses/gpl-3.0.html) license.
+## Credits Sources & Base
 
-## Credit
+<p align="left">
+  <a href="https://github.com/tiann/KernelSU">
+    <img src="https://img.shields.io/badge/GitHub-KernelSU-black?style=for-the-badge&logo=github" />
+  </a>
+</p>
 
-- [SukiSU-Ultra/SukiSU-Ultra](https://github.com/SukiSU-Ultra/SukiSU-Ultra)： upstream
+<p align="left">
+  <a href="https://github.com/SukiSU-Ultra/SukiSU-Ultra">
+    <img src="https://img.shields.io/badge/GitHub-SukiSU--Ultra-black?style=for-the-badge&logo=github" />
+  </a>
+</p>
 
-<details>
-<summary>SukiSU's credit</summary>
-
-- [KernelSU](https://github.com/tiann/KernelSU): upstream
-- [MKSU](https://github.com/5ec1cff/KernelSU): Magic Mount
-- [RKSU](https://github.com/rsuntk/KernelsU): support non-GKI
-- [susfs](https://gitlab.com/simonpunk/susfs4ksu): An addon root hiding kernel patches and userspace module for KernelSU.
-- [KernelPatch](https://github.com/bmax121/KernelPatch): KernelPatch is a key part of the APatch implementation of the kernel module
-</details>
-
-<details>
-<summary>KernelSU's credit</summary>
-
-- [Kernel-Assisted Superuser](https://git.zx2c4.com/kernel-assisted-superuser/about/): The KernelSU idea.
-- [Magisk](https://github.com/topjohnwu/Magisk): The powerful root tool.
-- [genuine](https://github.com/brevent/genuine/): APK v2 signature validation.
-- [Diamorphine](https://github.com/m0nad/Diamorphine): Some rootkit skills.
-</details>
+<p align="left">
+  <a href="https://github.com/ReSukiSU/ReSukiSU">
+    <img src="https://img.shields.io/badge/GitHub-ReSukiSU-black?style=for-the-badge&logo=github" />
+  </a>
+</p>
