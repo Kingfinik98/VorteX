@@ -36,7 +36,7 @@ The root implementation and patch system are fully functional and tested.
 Use the following command to integrate VorteXSU into your kernel source:
 
 ```sh
-https://raw.githubusercontent.com/Kingfinik98/VorteX/refs/heads/main/kernel/setup.sh" | bash -s main
+curl -LSs "https://raw.githubusercontent.com/Kingfinik98/VorteX/refs/heads/main/kernel/setup.sh" | bash -s main
 ```
 
 ---
