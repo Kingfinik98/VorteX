@@ -91,6 +91,15 @@ def get_caption_for_debug():
     )
     return msg
 
+def get_short_filename(file):
+    basename = os.path.basename(file)
+    if "debug" in basename.lower():
+        return "VorteX-Debug.apk"
+    elif "spoofed" in basename.lower():
+        return "VorteX-Spoofed.apk"
+    else:
+        return "VorteX-Release.apk"
+
 def check_environ():
     global CHAT_ID, MESSAGE_THREAD_ID
     if BOT_TOKEN is None:
@@ -150,15 +159,14 @@ async def main():
     upload_debug_files = []
 
     for index, file in enumerate(files):
-        if os.path.basename(file).find("debug") != -1:
-            # If the filename contains "debug", treat it as a debug file and add caption to it
-            upload_debug_files.append(InputMediaDocument(media=open(file, "rb"), filename=os.path.basename(file), caption=f"{caption_debug if not no_caption else '<b>DEBUG Manager</b>'}", parse_mode=ParseMode.HTML))
+        short_name = get_short_filename(file)
+        if "debug" in os.path.basename(file).lower():
+            upload_debug_files.append(InputMediaDocument(media=open(file, "rb"), filename=short_name, caption=f"{caption_debug if not no_caption else '<b>DEBUG Manager</b>'}", parse_mode=ParseMode.HTML))
             continue
         elif index == len(files) - 1:
-            # Only add caption to the last file
-            upload_release_files.append(InputMediaDocument(media=open(file, "rb"), filename=os.path.basename(file), caption=f"{caption if not no_caption else '<b>Release Manager</b>'}", parse_mode=ParseMode.HTML))
+            upload_release_files.append(InputMediaDocument(media=open(file, "rb"), filename=short_name, caption=f"{caption if not no_caption else '<b>Release Manager</b>'}", parse_mode=ParseMode.HTML))
             continue
-        upload_release_files.append(InputMediaDocument(media=open(file, "rb"), filename=os.path.basename(file)))
+        upload_release_files.append(InputMediaDocument(media=open(file, "rb"), filename=short_name))
 
     print("[+] Caption: ")
     print("---")
