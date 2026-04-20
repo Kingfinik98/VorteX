@@ -27,7 +27,7 @@ jobs:
 
     - name: Build kernelsu.ko
       run: |
-        git config --global --add safe.directory /__w/ReSukiSU/ReSukiSU
+        git config --global --add safe.directory /__w/VorteX/VorteX
         cd kernel
 
         echo "=== Building kernelsu.ko for KMI: ${{ inputs.kmi }} ==="
