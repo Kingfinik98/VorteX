@@ -12,16 +12,10 @@ val androidCompileNdkVersion by extra(libs.versions.ndk.get())
 val androidSourceCompatibility by extra(JavaVersion.VERSION_21)
 val androidTargetCompatibility by extra(JavaVersion.VERSION_21)
 val managerVersionCode by extra(30000 + getGitCommitCount() + 700)
-val managerVersionName by extra(getGitDescribe())
+val managerVersionName by extra("v3.2.0")
 
 fun getGitCommitCount(): Int {
     return providers.exec {
         commandLine("git", "rev-list", "--count", "HEAD")
     }.standardOutput.asText.get().trim().toInt()
-}
-
-fun getGitDescribe(): String {
-    return providers.exec {
-        commandLine("git", "describe", "--tags", "--always", "--abbrev=0")
-    }.standardOutput.asText.get().trim()
 }

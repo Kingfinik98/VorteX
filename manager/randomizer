@@ -25,5 +25,5 @@ find . -type f -exec sed -i \
     -e "s/io_vortex_vortex/${word4}_${word2}_${word3}/g" \
     -e "s/com_vortex_vortex/${word1}_${word2}_${word3}/g" {} +
 
-# add -spoofed on tags
-sed -i -e '/fun getGitDescribe(): String {/,/^    }/ s/\.trim()$/.trim() + "-spoofed"/' build.gradle.kts
+# add -spoofed on version
+sed -i 's/v3\.2\.0"/v3.2.0-spoofed"/g' build.gradle.kts
