@@ -5,10 +5,10 @@ import android.app.Activity
 import android.content.Context
 import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
-import com.resukisu.resukisu.R
-import com.resukisu.resukisu.ui.util.install
-import com.resukisu.resukisu.ui.util.rootAvailable
-import com.resukisu.resukisu.utils.AssetsUtil
+import com.vortex.vortex.R
+import com.vortex.vortex.ui.util.install
+import com.vortex.vortex.ui.util.rootAvailable
+import com.vortex.vortex.utils.AssetsUtil
 import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

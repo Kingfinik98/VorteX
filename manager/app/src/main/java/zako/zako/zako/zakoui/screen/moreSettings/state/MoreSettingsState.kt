@@ -8,10 +8,10 @@ import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import com.resukisu.resukisu.Natives
-import com.resukisu.resukisu.R
-import com.resukisu.resukisu.ui.theme.CardConfig
-import com.resukisu.resukisu.ui.theme.ThemeConfig
+import com.vortex.vortex.Natives
+import com.vortex.vortex.R
+import com.vortex.vortex.ui.theme.CardConfig
+import com.vortex.vortex.ui.theme.ThemeConfig
 import zako.zako.zako.zakoui.screen.moreSettings.util.LocaleHelper
 
 /**
