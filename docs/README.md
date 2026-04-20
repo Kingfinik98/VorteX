@@ -21,7 +21,7 @@ Kernel-based Android Root Solution from VorteXSU
 
 ## Overview
 
-VorteXSU is a kernel-based root solution designed for clean integration, stability, and multi-manager compatibility.
+VorteX is a kernel-based root solution designed for clean integration, stability, and multi-manager compatibility.
 
 The root implementation and patch system are fully functional and tested.
 
